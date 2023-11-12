@@ -3,7 +3,9 @@
 import 'package:flutter/material.dart';
 
 class BmiCal extends StatelessWidget {
-  const BmiCal({super.key});
+  weightController = TextEditingController();
+  heightController = TextEditingController();
+  BmiCal({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,7 @@ class BmiCal extends StatelessWidget {
               padding:
                   const EdgeInsets.only(left: 30, right: 30, top: 5, bottom: 5),
               child: TextField(
+                controller: heightController,
                 decoration: InputDecoration(
                     hintText: "Enter Height",
                     enabledBorder: OutlineInputBorder(
@@ -43,6 +46,7 @@ class BmiCal extends StatelessWidget {
               padding:
                   const EdgeInsets.only(left: 30, right: 30, top: 5, bottom: 5),
               child: TextField(
+                controller: weightController,
                 decoration: InputDecoration(
                     hintText: "Enter Weight",
                     enabledBorder: OutlineInputBorder(
