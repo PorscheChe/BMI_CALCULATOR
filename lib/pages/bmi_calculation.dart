@@ -1,5 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'dart:ffi';
+
+import 'package:bmi_calculator/pages/results.dart';
 import 'package:flutter/material.dart';
 
 class BmiCal extends StatelessWidget {
@@ -34,7 +37,7 @@ class BmiCal extends StatelessWidget {
               child: TextField(
                 controller: heightController,
                 decoration: InputDecoration(
-                    hintText: "Enter Height",
+                    hintText: "Enter Height (CM)",
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         width: 1,
@@ -48,7 +51,7 @@ class BmiCal extends StatelessWidget {
               child: TextField(
                 controller: weightController,
                 decoration: InputDecoration(
-                    hintText: "Enter Weight",
+                    hintText: "Enter Weight (KG)",
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         width: 1,
@@ -57,7 +60,15 @@ class BmiCal extends StatelessWidget {
               ),
             ),
             MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                var weight = double.parse(weightController.text);
+                var height = double.parse(heightController.text);
+                double bmi = (weight / height / height) * 10000;
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Results(bmi: int.parse(bmi))));
+              },
               color: Colors.black87,
               textColor: Colors.white,
               elevation: 0,

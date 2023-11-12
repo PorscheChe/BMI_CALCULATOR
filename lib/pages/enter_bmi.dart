@@ -73,7 +73,7 @@ class EnterBmi extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                Results(bmi: int.parse(controller.text))));
+                                Results(bmi: double.parse(controller.text))));
                   },
                   child: Text(
                     "E N T E R",

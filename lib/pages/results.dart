@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Results extends StatelessWidget {
-  final int bmi;
+  final double bmi;
   bool isHealthy = true;
   final _controller = PageController();
   Results({
     super.key,
     required this.bmi,
   });
-  void checkHealth(int bmi) {
+  void checkHealth(double bmi) {
     if (bmi >= 18.5 && bmi <= 24.9) {
       isHealthy = true;
     } else if (bmi < 18.5 || bmi > 24.9) {
@@ -19,7 +19,7 @@ class Results extends StatelessWidget {
     }
   }
 
-  String bmiResults(int bmi) {
+  String bmiResults(double bmi) {
     String result = "";
     if (bmi >= 18.5 && bmi <= 24.9) {
       result = "Normal Weight";
@@ -37,7 +37,7 @@ class Results extends StatelessWidget {
     return result;
   }
 
-  Widget _suggestions(int bmi) {
+  Widget _suggestions(double bmi) {
     if (bmi < 18.5) {
       return Padding(
         padding: const EdgeInsets.only(left: 10, right: 10),
