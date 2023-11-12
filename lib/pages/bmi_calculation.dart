@@ -64,6 +64,7 @@ class BmiCal extends StatelessWidget {
                 var weight = double.parse(weightController.text);
                 var height = double.parse(heightController.text);
                 double bmi = (weight / height / height) * 10000;
+                print(bmi);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
