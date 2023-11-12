@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 
 class BmiCal extends StatelessWidget {
-  weightController = TextEditingController();
-  heightController = TextEditingController();
+  final weightController = TextEditingController();
+  final heightController = TextEditingController();
   BmiCal({super.key});
 
   @override
