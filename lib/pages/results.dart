@@ -21,24 +21,24 @@ class Results extends StatelessWidget {
 
   String bmiResults(double bmi) {
     String result = "";
-    if (bmi >= 18.5 && bmi <= 24.9) {
+    if (bmi > 18.5 && bmi <= 24.9) {
       result = "Normal Weight";
-    } else if (bmi < 18.5) {
+    } else if (bmi <= 18.5) {
       result = "Underweight";
-    } else if (bmi >= 25 && bmi <= 29.9) {
+    } else if (bmi > 24.9 && bmi <= 29.9) {
       result = "Overweight";
-    } else if (bmi >= 30 && bmi < 34.9) {
+    } else if (bmi > 29.9 && bmi < 34.9) {
       result = "Class 1 Obesity";
-    } else if (bmi >= 35 && bmi <= 39.9) {
+    } else if (bmi > 34.9 && bmi <= 39.9) {
       result = "Class 2 Obesity";
-    } else if (bmi >= 40) {
+    } else if (bmi > 39.9) {
       result = "Severely Obese";
     }
     return result;
   }
 
   Widget _suggestions(double bmi) {
-    if (bmi < 18.5) {
+    if (bmi <= 18.5) {
       return Padding(
         padding: const EdgeInsets.only(left: 10, right: 10),
         child: Container(
@@ -83,7 +83,7 @@ class Results extends StatelessWidget {
           ),
         ),
       );
-    } else if (bmi >= 30) {
+    } else if (bmi > 24.9) {
       return Padding(
         padding: const EdgeInsets.only(left: 10, right: 10),
         child: Container(
@@ -182,6 +182,7 @@ class Results extends StatelessWidget {
   Widget build(BuildContext context) {
     checkHealth(bmi);
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(
           "Y O U R  R E S U L T S",
@@ -198,7 +199,7 @@ class Results extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.only(top: 40),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
               padding: const EdgeInsets.only(
